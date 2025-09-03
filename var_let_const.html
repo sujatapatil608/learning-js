@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x=101;
+        let y=102;
+        const z=103;
+        document.write("<br>");
+
+        function scopeExample(){
+           var x=10;
+           let y=20;
+           const z=30;
+            if( true)
+            {
+                var x=1; //reassign
+                let y=2;
+                const z=3;
+                document.write(x);
+                document.write(y);
+                document.write(z);
+                document.write("<br>");
+
+            }
+            //outside the block but side the function
+            document.write(x);
+            document.write(y);
+            document.write(z);
+            document.write("<br>");
+        }
+        //call function
+        document.write(x);
+        document.write(y);
+        document.write(z);
+        document.write("<br>");
+    </script>
+</body>
+</html>
