@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //------array modify and delete----//
+        var a=["Ram",22,"BE IT","Software Engineer"];
+        document.write(a+"<br>");
+        a[2]="BE CS";
+        document.write(a+"<br>");
+
+        delete a[1];
+        document.write(a+"<br>");
+    </script>
+    <script>
+        //------ase and deceoder---//
+        var b=["Ram","Durga","Dipali","Ganesh","Sakshi","Pooja"];
+        document.write(b+"<br>");
+        b.sort();
+        document.write(b+"<br>");
+        b.reverse();
+        document.write(b+"<br>");
+    </script>
+    <script>
+        //-----push and pop---//
+        var c=["Ram","Durga","Dipali","Ganesh","Sakshi","Pooja"];
+        document.write(c+ "<br>");
+        c.pop();
+        document.write(c+ "<br>");
+        c.push("Shree");
+        document.write(c+ "<br>");
+    </script>
+    <script>
+        //-----shift and unshift------//
+        var c=["Ram","Durga","Dipali","Ganesh","Sakshi","Pooja"];
+        document.write(c+ "<br>");
+        c.shift();
+
+        document.write(c+ "<br>");
+        c.unshift("Rahul");
+        c.unshift("Rani");
+        document.write(c+ "<br>");
+    </script>
+    <script>
+        //------concat and join-------//
+        var a=["Durga","Dipali","Ganesh"];
+        var b=["Ganesh","Sakshi","Pooja"];
+        var e=["Ram","Swati","Vijay"];
+        var c=a.concat(b,e);
+        document.write(c+ "<br>");
+        var d=c.join("/");
+        document.write(d+ "<br>");
+    </script>
+</body>
+</html>

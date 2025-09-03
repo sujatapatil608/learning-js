@@ -11,43 +11,41 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 </head>
-
 <body>
-  <section>
     <div class="container shadow-sm">
       <div class="row">
         <div class="col-md-6 border border-black p-3">
           <h1>Simple Calculation</h1>
           <hr>
-          <form class="form">
+          <form name=" myform">
             <div class="row">
               <div class="col-md-6 p-3 btn-light ">
-                <label for="name" class="form-label">value1</label>
-                <input type="number" class="form-control mb-3" placeholder="Enter frist Number">
+                <label for="n1" class="form-label">value1</label>
+                <input type="number" name="n1" class="form-control mb-3" placeholder="Enter frist Number">
               </div>
               <div class="col-md-6 p-3 btn-light">
-                <label for="name" class="form-label">value2</label>
-                <input type="number" class="form-control mb-3" placeholder="Enter second Number">
+                <label for="n2" class="form-label">value2</label>
+                <input type="number" name="n2" class="form-control mb-3" placeholder="Enter second Number">
               </div>
 
               <div class="col-md-2 mt2 p-1">
-                <button class="operator">+</button>
+                <button class="operator" type="button" onclick="add()">+</button>
               </div>
               <div class="col-md-2 m-2">
-                <button class="oerator">-</button>
+                <button class="oerator" type="button" onclick="sub()">-</button>
               </div>
               <div class="col-md-2 m-2 ">
-                <button class="oerator">*</button>
+                <button class="oerator" type="button" onclick="multi()">*</button>
               </div>
               <div class="col-md-2 m-2">
-                <button class="oerator">/</button>
+                <button class="oerator" type="button" onclick="div()">/</button>
               </div>
-              <div class="col-md-2 m-2">
-                <button class="oerator">%</button>
-              </div>
-              <div class="col-md-2 m-2 p-1 text-center">
-                <button type="button" class="btn center-text btn-primary"> submit</button>
-                <button type="button" class="btn btn-light p-2 m-2">Result</button>
+              <div class="col-md-2">
+               <button type="reset" class="btn center-text btn-primary"> Reset:</button>
+               </div>
+              <div class="col-md-2 ">
+                <label for="result" class="form-label">Result</label>
+                <input type="number" name="result" class=" form-control"disabled>
               </div>
             </div>
             <!--- <div class="row">
@@ -72,7 +70,16 @@
       </div>
     </div>
     </div>
-  </section>
+  <script>
+    var a,b,result;
+    function add(){
+      a=Number(document.myform.n1.value1);
+      b=Number(document.myform.n2.value2);
+      result=a+b;
+
+      document.myform.res.value=result.toFixed(3);
+    }
+  </script>
 </body>
 
 </html>

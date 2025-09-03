@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <style>
+body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      width: 320px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+      font-weight: 500;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+
+    .buttons button {
+      flex: 1;
+      margin: 0 0.3rem;
+      padding: 0.6rem;
+      font-size: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      background: transparent;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background: #f0f0f0;
+      border-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <main class="calculator">
+    <h2>Calculator</h2>
+
+    <label for="num1">Enter Number 1</label>
+    <input type="number" id="num1" name="n1">
+
+    <label for="num2">Enter Number 2</label>
+    <input type="number" id="num2" name="n2">
+
+    <label for="result">Result</label>
+    <input type="text" id="result" name="res" class="form-control" disabled>
+
+    <div class="buttons">
+      <button onclick="calculate('+')">+</button>
+      <button onclick="calculate('-')">−</button>
+      <button onclick="calculate('*')">×</button>
+      <button onclick="calculate('/')">/</button>
+      <button class="btn btn-secondary me-2" type="reset">Reset</button>
+    </div>
+  </main>
+
+  <script>
+    function calculate(operator) {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      let result;
+
+      if (isNaN(num1) || isNaN(num2)) {
+        result = "Please enter valid numbers";
+      } else {
+        switch (operator) {
+          case '+': result = num1 + num2; break;
+          case '-': result = num1 - num2; break;
+          case '*': result = num1 * num2; break;
+          case '/': result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero"; break;
+        }
+      }
+
+      document.getElementById('result').value = result;
+    }
+  </script>
