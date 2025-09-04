@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+    <h1 id="clock"></h1> 
+
+<!--<h1>Counter</h1>
+<button id="count">Shop</button>
+<script>
+    function countTime(){
+        let now=new Date();
+        let time=now.getSeconds();
+        document.getElementById("count").innerHTML=time;
+    }
+</script>-->
+
+    <script>
+        function showTime(){
+            let now=new Date();
+            let time=now.toLocaleTimeString();
+            document.getElementById("clock").innerHTML=time;
+        }
+        setInterval(showTime,1000);
+    </script>
+<!--stop count-->
+    <h1>Counter</h1>
+    <h1 id="count"></h1>
+    <button onclick="stopcounter()">Stop</button>
+    <script>
+        let count =0;
+        let Counter=setInterval(function(){
+            count++;
+            document.getElementById("count").innerHTML=count;
+        },1000);
+
+        function stopcounter(){
+            clearInterval(Counter);
+        }
+    </script>
+    <!--set time out-->
+    <h3 id="msg">Hi Durga how are you.....</h3>
+    <script>
+        setTimeout(function(){
+            document.getElementById('msg').innerHTML="Hi Durga i am fine ......How r u?";
+        },5000);
+
+        function setInterval() {
+            
+            setInterval('msg');
+        }
+    </script>
+</body>
+</html>
