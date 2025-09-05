@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form id="myForm" onsubmit="return validateForm()" class="p-4 border rounded shadow">
+        
+        <!-- Name -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control">
+          <small id="nameError" class="text-danger"></small>
+        </div>
+        
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control">
+          <small id="emailError" class="text-danger"></small>
+        </div>
+        
+        <!-- Phone -->
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone No:</label>
+          <input type="number" id="phone" class="form-control">
+          <small id="phoneError" class="text-danger"></small>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control">
+          <small id="passwordError" class="text-danger"></small>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" id="confirmPassword" class="form-control">
+          <small id="confirmPasswordError" class="text-danger"></small>
+        </div>
+
+        <!-- Message -->
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" class="form-control"></textarea>
+          <small id="messageError" class="text-danger"></small>
+        </div>
+
+        <!-- Gender -->
+        <div class="mb-3">
+          <label class="form-label">Gender</label><br>
+          <input type="radio" name="gender" value="male"> Male
+          <input type="radio" name="gender" value="female"> Female
+          <br><small id="genderError" class="text-danger"></small>
+        </div>
+
+        <!-- Agree -->
+        <div class="mb-3 form-check">
+          <input type="checkbox" id="agree" class="form-check-input">
+          <label for="agree" class="form-check-label">I agree to terms & conditions</label>
+          <br><small id="agreeError" class="text-danger"></small>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function validateForm() {
+  let isValid = true;
+
+  // Get values
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let password = document.getElementById("password").value.trim();
+  let confirmPassword = document.getElementById("confirmPassword").value.trim();
+  let message = document.getElementById("message").value.trim();
+  let gender = document.querySelector('input[name="gender"]:checked');
+  let agree = document.getElementById("agree").checked;
+
+  // Reset error messages
+  document.querySelectorAll("small").forEach(el => el.textContent = "");
+
+  // Name
+  if (name === "") {
+    document.getElementById("nameError").textContent = "Please enter your name.";
+    isValid = false;
+  } else if (name.length < 3) {
+    document.getElementById("nameError").textContent = "At least 3 characters required.";
+    isValid = false;
+  }
+
+  // Email
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email === "") {
+    document.getElementById("emailError").textContent = "Please enter your email.";
+    isValid = false;
+  } else if (!emailPattern.test(email)) {
+    document.getElementById("emailError").textContent = "Invalid email format.";
+    isValid = false;
+  }
+
+  // Phone
+  if (phone === "") {
+    document.getElementById("phoneError").textContent = "Please enter your phone number.";
+    isValid = false;
+  } else if (phone.length < 10) {
+    document.getElementById("phoneError").textContent = "Phone must be at least 10 digits.";
+    isValid = false;
+  }
+
+  // Password
+  if (password === "") {
+    document.getElementById("passwordError").textContent = "Please enter a password.";
+    isValid = false;
+  } else if (password.length < 6) {
+    document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+    isValid = false;
+  }
+
+  // Confirm Password
+  if (confirmPassword === "") {
+    document.getElementById("confirmPasswordError").textContent = "Please confirm your password.";
+    isValid = false;
+  } else if (confirmPassword !== password) {
+    document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+    isValid = false;
+  }
+
+  // Message
+  if (message === "") {
+    document.getElementById("messageError").textContent = "Please enter your message.";
+    isValid = false;
+  }
+
+  // Gender
+  if (!gender) {
+    document.getElementById("genderError").textContent = "Please select your gender.";
+    isValid = false;
+  }
+
+  // Agree
+  if (!agree) {
+    document.getElementById("agreeError").textContent = "You must agree to the terms.";
+    isValid = false;
+  }
+
+  if (isValid) {
+    alert("Form Submitted Successfully!");
+  }
+
+  return isValid;
+}
+</script>
+
+</body>
+</html>
